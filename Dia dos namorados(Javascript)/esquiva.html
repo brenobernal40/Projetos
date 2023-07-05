@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            position: relative;
+            display: flex;
+        }
+        #container{
+            position: absolute;
+            width: 99vw;
+            height: 98vh;
+            display: flex ;
+            background-color: rgb(0, 0, 0); 
+            justify-content: center;
+            color: red;
+            background-image: url(img/1877750-valentine-heart-background-gratis-vetor.jpg);
+            
+        }
+        
+        #btn1{
+            position: absolute;
+            width: 80px;
+            height: 40px;
+            border: none;
+            top: 300px;
+            left: 300px;
+            border-radius: 20%;
+            background-color: red;
+            color: white;
+            font-style: italic;
+        }
+        #btn2{
+            position: absolute;
+            width: 80px;
+            height: 40px;
+            border: none;
+            top: 370px;
+            left: 500px;
+            border-radius: 20%;
+            background-color: red;
+            color: white;
+            font-style: italic;
+        }
+        #btn2:hover{
+            width: 130px;
+            height: 80px;
+            cursor: pointer;
+        }
+        #frase{
+            position: absolute;
+            justify-content: center;
+            width: 410px;
+            height: 100px;
+            
+            
+
+        }
+        p{
+            font-size: 40px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: rgb(255, 0, 0);
+           
+        }
+        #box{
+            position: relative;
+            
+            width: 99vw;
+            height: 98vh;
+            justify-content: center;
+            display: flex;
+        }
+        #image{
+            position: absolute;
+            width: 0px;
+            height: 0px;
+            animation: pulse 2s infinite;
+            border-radius: 10%;
+        }
+        #image2{
+            position: absolute;
+            width: 0px;
+            height: 40vh;
+            
+            transform: scaleX(-1);
+            border-radius: 20%;
+
+        }
+        
+
+        @keyframes pulse {
+  0% {
+    transform: scale(1);
+    filter: brightness(100%);
+  }
+  50% {
+    transform: scale(1.1);
+    filter: brightness(150%);
+  }
+  100% {
+    transform: scale(1);
+    filter: brightness(100%);
+  }
+  
+}
+
+        #text{
+            position: absolute;
+            width: 450px;
+            height: 200px;
+        }
+        
+    </style>
+</head>
+<body>
+    
+ <div id="container">
+    
+    <div id="box">
+        <img  src="img/eu e juju.jpg" alt="" id="image">
+        <img src="img/Screenshot_1.png" alt="" id="image2">
+    </div>
+    <div id ="frase">
+        <p id="text">JULIA VOCÊ ME AMA?</p>
+    </div>
+    <button id="btn1">
+        NÃO
+    </button>
+    <button id="btn2" onclick="amar()">
+        SiM
+    </button>
+
+ </div>
+
+
+
+
+    <script>
+
+
+        function amar(params) {
+            document.getElementById('box').style.alignItems ="center"
+            document.getElementById('image').style.height = "85vh"
+            document.getElementById('image').style.width = "35vw"
+            document.getElementById('text').innerText = "Eu Também Te amo"
+            document.getElementById('text').style.width = "400px"
+            document.getElementById('frase').style.right = "100px"
+            document.getElementById('frase').style.width = "300px"
+           // document.getElementById('container').style.backgroundImage = ""
+            document.getElementById('btn1').remove()
+            document.getElementById('btn2').remove()
+            document.getElementById('image2').style.width = "20vw"
+            document.getElementById('image2').style.left = "1200px"
+            
+        }
+
+
+        // ||||||
+        var element = document.getElementById('container')
+        document.getElementById('btn1').style.left = "1000px"
+        document.getElementById('btn1').style.top = "370px"
+        
+
+        element.addEventListener("mousemove",() => {
+            console.log('passou aqui')
+            var x = event.pageX
+            var y = event.pageY
+            var  xbox = parseInt(document.getElementById('btn1').style.left)
+            var ybox = parseInt(document.getElementById('btn1').style.top)
+            if( (xbox - x) <= 30 && (ybox - y) <= 30 && (xbox - x) >= -100 && (ybox - y) >=-60  ){
+                
+                var newx = Math.round(Math.random()*1400)
+                var newy = Math.round(Math.random()*700)
+                document.getElementById('btn1').style.left = `${newx}px `
+                document.getElementById('btn1').style.top = `${newy}px `
+            }
+            
+        })
+        </script>
+</body>
+</html>
